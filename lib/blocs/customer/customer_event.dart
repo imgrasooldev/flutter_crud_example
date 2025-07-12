@@ -5,4 +5,10 @@ abstract class CustomerEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadCustomersEvent extends CustomerEvent {}
+class LoadCustomersEvent extends CustomerEvent {
+  final int page;
+  LoadCustomersEvent({this.page = 1}); // ✅ Add this constructor
+
+  @override
+  List<Object?> get props => [page];
+}

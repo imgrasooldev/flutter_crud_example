@@ -16,8 +16,9 @@ class LoginScreen extends StatelessWidget {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (ctx, state) {
           if (state is AuthFailure) SnackBar(content: Text(state.err));
-          if (state is AuthSuccess)
+          if (state is AuthSuccess) {
             Navigator.pushReplacementNamed(ctx, '/home');
+          }
         },
         builder: (ctx, state) {
           return Padding(

@@ -6,10 +6,13 @@ abstract class CustomerState extends Equatable {
   List<Object?> get props => [];
 }
 
+// Initial empty state
 class CustomerInitial extends CustomerState {}
 
+// When loading data
 class CustomerLoading extends CustomerState {}
 
+// When data is loaded successfully
 class CustomerLoaded extends CustomerState {
   final List<Customer> customers;
 
@@ -19,11 +22,12 @@ class CustomerLoaded extends CustomerState {
   List<Object?> get props => [customers];
 }
 
+// When an error occurs
 class CustomerError extends CustomerState {
-  final String error;
+  final String message;
 
-  CustomerError(this.error);
+  CustomerError(this.message);
 
   @override
-  List<Object?> get props => [error];
+  List<Object?> get props => [message];
 }

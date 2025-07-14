@@ -20,7 +20,9 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
       }
 
       try {
-        final customers = await customerRepository.fetchCustomers(page: event.page);
+        final customers = await customerRepository.fetchCustomers(
+          page: event.page,
+        );
 
         if (event.page == 1) {
           allCustomers = customers;
